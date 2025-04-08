@@ -1,0 +1,18 @@
+{
+    "label": "World",
+    "viewBox": "0 0 2000 1001",
+    "locations": [
+      {
+        "id": "AFG",
+        "name": "Afghanistan",
+        "path": "M982.62,402.88L977..."
+      },
+      {
+        "id": "USA",
+        "name": "United States",
+        "path": "M227.48,370.6L228.3..."
+      }
+      
+    ]
+  }
+  
