@@ -1,13 +1,17 @@
-import React from 'react'
+import { useState } from 'react';
 import { Navbar, Nav, Container, Dropdown, Image } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Bell, BoxArrowRight } from 'react-bootstrap-icons';
+import { Link } from 'react-router-dom';
 import {
     FaHome, FaTags, FaFileAlt, FaCogs, FaDesktop,
     FaShoppingCart, FaUsers, FaBullhorn, FaTools, FaChartBar
   } from 'react-icons/fa';
+  import { BiChevronDown, BiChevronUp } from 'react-icons/bi';
 
 function Header() {
+
+  const [openCatalog, setOpenCatalog] = useState(false);
   return (
     <div>
      
@@ -69,52 +73,106 @@ function Header() {
            position: 'fixed',
            top: '56px', // height of navbar
            left: 0,
-           overflowY: 'auto'
+           overflow: 'auto'
      }}>
       <div className="p-3 fw-bold text-white">NAVIGATION</div>
-      <Nav className="flex-column">
-
-        <Nav.Link href="#" className="text-white d-flex align-items-center" style={{ padding: '12px 20px' }}>
+      <Nav className="flex-column bg-dark">
+      <Nav.Item>
+        <Link to="/" className="nav-link text-white d-flex align-items-center" style={{ padding: '12px 20px' }}>
           <FaHome className="me-2" /> Dashboard
-        </Nav.Link>
+        </Link>
+      </Nav.Item>
+      <div className="border-top border-secondary mx-3" />
 
-        <Nav.Link href="#" className="text-white d-flex align-items-center" style={{ padding: '12px 20px' }}>
+      {/* Catalog Dropdown */}
+      <div
+        onClick={() => setOpenCatalog(!openCatalog)}
+        className="text-white d-flex align-items-center justify-content-between px-3 py-2"
+        style={{ cursor: 'pointer' }}
+      >
+        <div className="d-flex align-items-center">
           <FaTags className="me-2" /> Catalog
-        </Nav.Link>
+        </div>
+        {openCatalog ? <BiChevronUp /> : <BiChevronDown />}
+      </div>
 
-        <Nav.Link href="#" className="text-white d-flex align-items-center" style={{ padding: '12px 20px' }}>
+      {openCatalog && (
+  <div className="text-white" style={{ fontSize: '14px' }}>
+    <div className="ms-4">
+      <Link to="/categories" className="nav-link text-white py-1">» Categories</Link>
+      <Link to="/catalog/products" className="nav-link text-white py-1">» Products</Link>
+      <Link to="/catalog/subscription-plans" className="nav-link text-white py-1">» Subscription Plans</Link>
+      <Link to="/catalog/filters" className="nav-link text-white py-1">» Filters</Link>
+      <Link to="/catalog/attributes" className="nav-link text-white py-1">» Attributes</Link>
+      <Link to="/catalog/options" className="nav-link text-white py-1">» Options</Link>
+      <Link to="/catalog/manufacturers" className="nav-link text-white py-1">» Manufacturers</Link>
+      <Link to="/catalog/identifiers" className="nav-link text-white py-1">» Identifiers</Link>
+      <Link to="/catalog/downloads" className="nav-link text-white py-1">» Downloads</Link>
+      <Link to="/catalog/reviews" className="nav-link text-white py-1">» Reviews</Link>
+      <Link to="/catalog/information" className="nav-link text-white py-1">» Information</Link>
+    </div>
+  </div>  
+)}
+      <div className="border-top border-secondary mx-3" />
+
+      {/* Other Links */}
+      <Nav.Item>
+        <Link to="/cms" className="nav-link text-white d-flex align-items-center" style={{ padding: '12px 20px' }}>
           <FaFileAlt className="me-2" /> CMS
-        </Nav.Link>
+        </Link>
+      </Nav.Item>
+      <div className="border-top border-secondary mx-3" />
 
-        <Nav.Link href="#" className="text-white d-flex align-items-center" style={{ padding: '12px 20px' }}>
+      <Nav.Item>
+        <Link to="/extensions" className="nav-link text-white d-flex align-items-center" style={{ padding: '12px 20px' }}>
           <FaCogs className="me-2" /> Extensions
-        </Nav.Link>
+        </Link>
+      </Nav.Item>
+      <div className="border-top border-secondary mx-3" />
 
-        <Nav.Link href="#" className="text-white d-flex align-items-center" style={{ padding: '12px 20px' }}>
+      <Nav.Item>
+        <Link to="/design" className="nav-link text-white d-flex align-items-center" style={{ padding: '12px 20px' }}>
           <FaDesktop className="me-2" /> Design
-        </Nav.Link>
+        </Link>
+      </Nav.Item>
+      <div className="border-top border-secondary mx-3" />
 
-        <Nav.Link href="#" className="text-white d-flex align-items-center" style={{ padding: '12px 20px' }}>
+      <Nav.Item>
+        <Link to="/sales" className="nav-link text-white d-flex align-items-center" style={{ padding: '12px 20px' }}>
           <FaShoppingCart className="me-2" /> Sales
-        </Nav.Link>
+        </Link>
+      </Nav.Item>
+      <div className="border-top border-secondary mx-3" />
 
-        <Nav.Link href="#" className="text-white d-flex align-items-center" style={{ padding: '12px 20px' }}>
+      <Nav.Item>
+        <Link to="/customers" className="nav-link text-white d-flex align-items-center" style={{ padding: '12px 20px' }}>
           <FaUsers className="me-2" /> Customers
-        </Nav.Link>
+        </Link>
+      </Nav.Item>
+      <div className="border-top border-secondary mx-3" />
 
-        <Nav.Link href="#" className="text-white d-flex align-items-center" style={{ padding: '12px 20px' }}>
+      <Nav.Item>
+        <Link to="/marketing" className="nav-link text-white d-flex align-items-center" style={{ padding: '12px 20px' }}>
           <FaBullhorn className="me-2" /> Marketing
-        </Nav.Link>
+        </Link>
+      </Nav.Item>
+      <div className="border-top border-secondary mx-3" />
 
-        <Nav.Link href="#" className="text-white d-flex align-items-center" style={{ padding: '12px 20px' }}>
+      <Nav.Item>
+        <Link to="/system" className="nav-link text-white d-flex align-items-center" style={{ padding: '12px 20px' }}>
           <FaTools className="me-2" /> System
-        </Nav.Link>
+        </Link>
+      </Nav.Item>
+      <div className="border-top border-secondary mx-3" />
 
-        <Nav.Link href="#" className="text-white d-flex align-items-center" style={{ padding: '12px 20px' }}>
+      <Nav.Item>
+        <Link to="/reports" className="nav-link text-white d-flex align-items-center" style={{ padding: '12px 20px' }}>
           <FaChartBar className="me-2" /> Reports
-        </Nav.Link>
+        </Link>
+      </Nav.Item>
+    </Nav>
 
-      </Nav>
+
     </div>
 
 
