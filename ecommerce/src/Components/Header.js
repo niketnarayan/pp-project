@@ -100,7 +100,7 @@ function Header() {
   <div className="text-white" style={{ fontSize: '14px' }}>
     <div className="ms-4">
       <Link to="/categories" className="nav-link text-white py-1">» Categories</Link>
-      <Link to="/catalog/products" className="nav-link text-white py-1">» Products</Link>
+      <Link to="/product" className="nav-link text-white py-1">» Products</Link>
       <Link to="/catalog/subscription-plans" className="nav-link text-white py-1">» Subscription Plans</Link>
       <Link to="/catalog/filters" className="nav-link text-white py-1">» Filters</Link>
       <Link to="/catalog/attributes" className="nav-link text-white py-1">» Attributes</Link>
