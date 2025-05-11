@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from './Header';
+
 import Carousel from 'react-bootstrap/Carousel';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
@@ -8,11 +8,13 @@ import './Home.css';
 import { Card, Row, Col,Container,Badge } from "react-bootstrap";
 import Footer from './Footer';
 import { FaSearch, FaCalendarAlt } from "react-icons/fa";
+import Header from './Header';
 
 
 function Home() {
 
-
+    // <Headers/>
+    <Header/>
     const destinations = [
         { name: "Banaras", image: "https://www.thehosteller.com/_next/image/?url=https%3A%2F%2Fstatic.thehosteller.com%2Fhostel%2Fimages%2FCover%20imageeee.jpg%2FCover%20imageeee-1720528885335.jpg&w=2048&q=75" },
         { name: "Jaisalmer", image: "https://plus.unsplash.com/premium_photo-1661962428918-6a57ab674e23?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8amFpc2FsbWVyfGVufDB8fDB8fHww" },
@@ -203,7 +205,7 @@ function Home() {
 
   return (
     <div>
-      <Header />
+      {/* <Header /> */}
 
       {/* Slider Section */}
       <div style={{ position: "relative" }}>

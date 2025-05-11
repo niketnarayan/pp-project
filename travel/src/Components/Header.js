@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
 import { Container, Navbar, Nav, Button , NavDropdown,Col ,Row} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Navbar.css'; 
@@ -9,16 +9,40 @@ import {
     FaTwitter,
     FaLinkedinIn,
   } from "react-icons/fa";
+  
 
 function Header() {
+
+    const [dateTime, setDateTime] = useState(new Date());
+
+  useEffect(() => {
+    const interval = setInterval(() => setDateTime(new Date()), 1000);
+    return () => clearInterval(interval); // cleanup
+  }, []);
+
+  const formatDate = (date) => {
+    const options = {
+      weekday: "long",
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+    };
+    return date.toLocaleString("en-IN", options);
+  };
   return (
     <>
-    <div style={{ backgroundColor: "#000", color: "#fff", padding: "10px 0" }}>
+<div style={{ backgroundColor: "#000", color: "#fff", padding: "10px 0" }}>
       <Container>
         <Row className="align-items-center">
           <Col md={6} className="text-center text-md-start">
-            <span style={{ fontSize: "16px", fontWeight: "500" }}>
+            <span style={{ fontSize: "16px", fontWeight: "500", display: "block" }}>
               Contact: 18001027408
+            </span>
+            <span style={{ fontSize: "14px", fontWeight: "400" }}>
+              {formatDate(dateTime)}
             </span>
           </Col>
           <Col md={6} className="text-center text-md-end">
